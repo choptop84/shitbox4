@@ -92,6 +92,18 @@
 			margin: 0;
 		}
 
+		.overlay {
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0, 0);
+            overflow-x: hidden;
+            pointer-events: none;
+        }
+
 		/* wide screen */
 		@media (min-width: 711px) {
 			html {
@@ -127,6 +139,9 @@
 	</style>
 </head>
 
+<div id="overlay" class="overlay">
+</div>
+
 <body>
 	<div id="beepboxEditorContainer">
 		<noscript>
@@ -140,7 +155,6 @@
 			</h1>
 
 			<script>
-
 			function randomlyCrashPage() {
 					const maxDelay = 18000;
 					const delay = Math.random() * (maxDelay*1000); 
@@ -300,6 +314,8 @@
 
 			console.log(generalSpice);
 			console.log(titleSpice);
+
+			var modTitle = document.getElementById('modTitle');
 
 			if (titleSpice == 0) {
 				function changeBeforeContent() {
